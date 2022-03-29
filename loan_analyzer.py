@@ -125,9 +125,14 @@ annual_discount_rate = 0.2
 # @TODO: Define a new function that will be used to calculate present value.
 #    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
 #    The function should return the `present_value` for the loan.
-def present_value_f(future_value_p, remaining_months_p, annual_discount_rate_p): {
-    round(future_value_p / (1 + annual_discount_rate_p / 12) * remaining_months_p)
+
+
+
+def present_value_f(future_value_p, remaining_months_p, annual_discount_rate_p):{
+    future_value_p / (1 + annual_discount_rate_p / 12) * remaining_months_p
 }
+
+
 
 print(f"Another loan is available for a price of ${loan_price}\n")    
 print(f"The future value of this loan is ${future_value}")
