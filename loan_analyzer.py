@@ -130,9 +130,8 @@ Perform financial calculations using functions.
 print("\n--------------------  PART 3  --------------------\n")
 
 # Given the following loan data, you will need to calculate the present value for the loan
-from asyncore import write
+
 import random
-from tkinter import W
 
 new_loan = {
     "loan_price": random.randint(400,1200),
@@ -287,14 +286,17 @@ Output this list of inexpensive loans to a csv file
 
 print("\n--------------------  PART 5  --------------------\n")
 
+from pathlib import Path
 import csv
 # Set the output header
 header = ["loan_price", "remaining_months", "repayment_interval", "future_value"]
 # Set the output file path
-output_path = "C:\Users\Christian\My_Files\Module_1\Loan_Viability_Analysis\inexpensive_loans.csv"
+output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
-with open(output_path, "w") as f:
-    write = csv.writer(f)
-    write.writerow(header)
-    write.writerows(inexpensive_loans)
+with output_path.open("w") as csv_file:
+    csvwriter = csv.DictWriter(csv_file, fieldnames = header)
+    csvwriter.writeheader()
+    #for each_loan in inexpensive_loans:
+    csvwriter.writerows(inexpensive_loans)
+# NEED TO FIGURE OUT FOR LOOP METHOD OF EXPORTING DICTIONARY TO A CSV
