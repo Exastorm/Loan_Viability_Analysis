@@ -295,8 +295,13 @@ output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 with output_path.open("w") as csv_file:
-    csvwriter = csv.DictWriter(csv_file, fieldnames = header)
-    csvwriter.writeheader()
-    #for each_loan in inexpensive_loans:
-    csvwriter.writerows(inexpensive_loans)
-# NEED TO FIGURE OUT FOR LOOP METHOD OF EXPORTING DICTIONARY TO A CSV
+
+    # ALTERNATIVE METHOD: csv.DictWriter
+    # csvwriter = csv.DictWriter(csv_file, fieldnames = header)
+    # csvwriter.writeheader()
+    # csvwriter.writerows(inexpensive_loans)
+
+    csvwriter = csv.writer(csv_file, delimiter = ",")
+    csvwriter.writerow(header)
+    for each_loan in inexpensive_loans:
+        csvwriter.writerow(each_loan.values())
