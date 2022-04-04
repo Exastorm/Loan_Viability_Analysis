@@ -131,6 +131,7 @@ print("\n--------------------  PART 3  --------------------\n")
 
 # Given the following loan data, you will need to calculate the present value for the loan
 
+from posixpath import abspath
 import random
 
 new_loan = {
@@ -296,7 +297,9 @@ output_path = Path("inexpensive_loans.csv")
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 with output_path.open("w") as csv_file:
 
-    # ALTERNATIVE METHOD: csv.DictWriter
+    # ALTERNATIVE METHOD - using csv.DictWriter.
+    # No 'for' loop needed. 3 lines of code instead of 4:
+
     # csvwriter = csv.DictWriter(csv_file, fieldnames = header)
     # csvwriter.writeheader()
     # csvwriter.writerows(inexpensive_loans)
@@ -305,3 +308,8 @@ with output_path.open("w") as csv_file:
     csvwriter.writerow(header)
     for each_loan in inexpensive_loans:
         csvwriter.writerow(each_loan.values())
+
+import os
+
+print(f'The {len(inexpensive_loans)} loans shown above have been recorded on the "inexpensive_loans.csv" file, which has been downloaded to {os.path.abspath("inexpensive_loans.csv")}')
+print("\nThank you for using Loan Analyzer by Exastorm\n")
