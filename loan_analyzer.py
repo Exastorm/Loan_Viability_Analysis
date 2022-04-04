@@ -131,7 +131,6 @@ print("\n--------------------  PART 3  --------------------\n")
 
 # Given the following loan data, you will need to calculate the present value for the loan
 
-from posixpath import abspath
 import random
 
 new_loan = {
