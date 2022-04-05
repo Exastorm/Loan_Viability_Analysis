@@ -309,6 +309,7 @@ with output_path.open("w") as csv_file:
         csvwriter.writerow(each_loan.values())
 
 import os
+import textwrap
 
 print(textwrap.fill(f'The {len(inexpensive_loans)} loans shown above have been recorded on the "inexpensive_loans.csv" file, which has been downloaded to {os.path.abspath("inexpensive_loans.csv")}', width = 50))
 print("\nThank you for using Loan Analyzer by Exastorm\n")
